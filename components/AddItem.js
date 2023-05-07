@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   inputView: { width: 300 },
   btn: {
-    backgroundColor: "#f4d5f1",
+    backgroundColor: "#f4d1f5",
 
     textAlign: "center",
     marginTop: 12,
