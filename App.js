@@ -3,9 +3,9 @@ import {
   Image,
   StyleSheet,
   Text,
-  View,
   FlatList,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import Header from "./components/Header";
 import { useState } from "react";
@@ -32,7 +32,13 @@ const App = () => {
   };
 
   const addItem = () => {
-    setItems((oldItems) => [newItem, ...oldItems]);
+    if (!addText.trim()) {
+      Alert.alert("Error", "You need to enter an item", [{ text: "Okke" }], {
+        cancelable: false,
+      });
+    } else {
+      setItems((oldItems) => [newItem, ...oldItems]);
+    }
     setAddText("");
   };
 

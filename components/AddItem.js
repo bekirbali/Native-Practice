@@ -11,8 +11,6 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 const AddItem = ({ addItem, setAddText, addText }) => {
   const changeHandler = (newText) => {
     setAddText(newText);
-    console.log(newText);
-    console.log(addText, "add Text");
   };
   return (
     <View style={styles.inputView}>
