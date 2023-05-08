@@ -8,16 +8,28 @@ import {
 } from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-const AddItem = () => (
-  <View style={styles.inputView}>
-    <TextInput style={styles.input} placeholder="Add item" />
-    <TouchableOpacity>
-      <Text style={styles.btn}>
-        <FontAwesome5 name="plus" style={{ fontSize: 14 }} /> Add
-      </Text>
-    </TouchableOpacity>
-  </View>
-);
+const AddItem = ({ addItem, setAddText, addText }) => {
+  const changeHandler = (newText) => {
+    setAddText(newText);
+    console.log(newText);
+    console.log(addText, "add Text");
+  };
+  return (
+    <View style={styles.inputView}>
+      <TextInput
+        style={styles.input}
+        placeholder="Add item"
+        onChangeText={changeHandler}
+        value={addText}
+      />
+      <TouchableOpacity>
+        <Text style={styles.btn} onPress={addItem}>
+          <FontAwesome5 name="plus" style={{ fontSize: 14 }} /> Add
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   input: {
