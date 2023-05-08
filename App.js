@@ -20,8 +20,20 @@ const App = () => {
     { id: uuid.v4(), text: "Bread" },
   ]);
 
+  const [addText, setAddText] = useState("");
+
   const deleteHandler = (id) => {
     setItems(items.filter((item) => item.id !== id));
+  };
+
+  const newItem = {
+    id: uuid.v4(),
+    text: addText,
+  };
+
+  const addItem = () => {
+    setItems((oldItems) => [newItem, ...oldItems]);
+    setAddText("");
   };
 
   return (
@@ -37,7 +49,7 @@ const App = () => {
         />
 
         <StatusBar style="auto" />
-        <AddItem />
+        <AddItem addText={addText} setAddText={setAddText} addItem={addItem} />
         <FlatList
           data={items}
           renderItem={({ item }) => (
